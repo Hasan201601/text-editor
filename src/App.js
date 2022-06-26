@@ -14,13 +14,6 @@ icons["redo"] = `<svg viewbox="0 0 18 18">
     <path class="ql-stroke" d="M9.91,13.91A4.6,4.6,0,0,1,9,14a5,5,0,1,1,5-5"></path>
   </svg>`;
 
-class CustomQuill extends ReactQuill {
-  destroyEditor() {
-    if (!this.editor) return;
-    this.unhookEditor(this.editor);
-  }
-}
-
 function App() {
   const [text, setText] = React.useState("");
   console.log(text);
@@ -78,7 +71,6 @@ function App() {
         onChange={(editor) => console.log(editor.getContents())}
         ref={reactQuillRef}
       />
-
       <div>
         <div dangerouslySetInnerHTML={{ __html: text }}></div>
       </div>
